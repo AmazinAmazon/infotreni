@@ -41,7 +41,7 @@ var delay = 2000;
 var lastClick = 0;
 var displayData = document.getElementById("searchInfo");
 var loadingIcon = document.getElementById("searchLoading");
-var selectedStation = [];
+var selectedInfo;
 //var loadStreak = 0;
 
 async function refreshSearch(station, loading = loadingIcon) {
@@ -93,14 +93,13 @@ async function refreshSearch(station, loading = loadingIcon) {
 }
 
 function stnBtnClick(lon, lat, stnName) {
-  selectedStation = []
+  selectedInfo = []
   markersGrp.clearLayers();
   
   L.marker([lat, lon]).addTo(markersGrp);
   
   map.setView([lat, lon], 14);
-  selectedStation.push(lat, lon, stnName)
-  console.log(selectedStation)
+  selectedInfo.push(lat, lon, stnName)
 }
 
 function onReturnSearch(event, obj) {
@@ -113,5 +112,30 @@ function inviaSegn(trnInfo) {
   if (trnInfo == "") {
     trnInfo = null
   }
-  console.log(trnInfo)
+  selectedInfo[3] = (trnInfo)
+  if (selectedInfo[0] == null | selectedInfo[3] == null) {
+    let finalError = document.getElementById("finalError");
+    finalError.className = "align-middle text-decoration-underline text-danger"
+    finalError.innerHTML = "Errore: selezionare una stazione e/o aggiungere una descrizione";
+  } else {
+    // add db post and add to table
+    finalError.className = "align-middle text-decoration-underline text-success"
+    finalError.innerHTML = "Segnalazione inviata";
+    let now = new Date();
+    selectedInfo[4] = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
+
+    addToTable(selectedInfo)
+  }
+}
+
+function addToTable(trainInfo) {
+  const currentTableBody = document.getElementById("tableTest")
+
+  currentTableBody.innerHTML += `<tr><td>${trainInfo[4]}</td><td>${trainInfo[2]}</td><td>${convertToPlain(trainInfo[3])}</td></tr>`
+}
+
+function convertToPlain(htmlStr) {
+  let tempDiv = document.createElement('div');
+  tempDiv.innerHTML = htmlStr;
+  return tempDiv.innerText
 }

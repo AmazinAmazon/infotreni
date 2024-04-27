@@ -63,12 +63,31 @@
             </button>
         </div>
         <div class="results m-1 rounded-2 text-center" id="searchInfo"></div>
-        <div class="form-group">
-            <!-- <label class="font-monospace">Treno:</label> -->
+        <div class="input-group">
             <textarea class="form-control" placeholder="Aggiungi informazioni sul convoglio"></textarea>
         </div>
         <button type="button" class="btn btn-primary mt-1" onclick="inviaSegn(previousElementSibling.firstElementChild.value)">Invia la segnalazione</button>
+        <span id="finalError"></span>
     </form>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Orario</th>
+                    <th scope="col">Localizzazione</th>
+                    <th scope="col">Informazione</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider" id="tableTest">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="mx-2 text-center bg-dark-subtle rounded-4 mt-2" style="bottom: 0;">
+        <p>Questo sito non è affiliato con Trenitalia</p>
+    </div>
 
 
     <!-- Scripts -->
