@@ -41,53 +41,78 @@
         </nav>
     </header>
 
-    <!-- Map -->
-    <div class="container-fluid p-0" style="height: 60vh;">
-        <div id="map" class="h-100 w-auto"></div>
-    </div>
-    
-    <!-- Separator -->
-    <hr class="m-1 d-lg-none">
-    
-    <form class="px-1" onsubmit="return false;">
-        <label class="font-monospace">Segnalare:</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="SearchStn" placeholder="Cerca una stazione" onkeydown="onReturnSearch(event, this)">
-            <button type="button" class="btn btn-outline-secondary"
-                onclick="refreshSearch(document.getElementById('SearchStn').value);"
-                style="border-color: var(--bs-border-color);">
-                Cerca
-                <!-- Hidden loading icon -->
-                <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true" id="searchLoading"></span>
-                <span class="visually-hidden" role="status">Loading...</span>
-            </button>
-        </div>
-        <div class="results m-1 rounded-2 text-center" id="searchInfo"></div>
-        <div class="input-group">
-            <textarea class="form-control" placeholder="Aggiungi informazioni sul convoglio"></textarea>
-        </div>
-        <button type="button" class="btn btn-primary mt-1" onclick="inviaSegn(previousElementSibling.firstElementChild.value)">Invia la segnalazione</button>
-        <span id="finalError"></span>
-    </form>
+    <div class="container-fluid">
+        <div class="row p-1">
+            <div class="col-lg-8 p-0">
+                <div class="container-fluid p-0" style="height: 60vh;">
+                    <div id="map" class="h-100 w-auto rounded-2"></div>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0 ps-1">
+                <hr class="m-1 d-lg-none"> <!-- Separator -->
+                <!-- Forn -->
+                <form onsubmit="return false;">
+                    <label class="font-monospace">Segnalare:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="SearchStn" placeholder="Cerca una stazione"
+                            onkeydown="onReturnSearch(event, this)">
+                        <button type="button" class="btn btn-outline-secondary"
+                            onclick="refreshSearch(document.getElementById('SearchStn').value);"
+                            style="border-color: var(--bs-border-color);">
+                            Cerca
+                            <!-- Hidden loading icon -->
+                            <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"
+                                id="searchLoading"></span>
+                            <span class="visually-hidden" role="status">Loading...</span>
+                        </button>
+                    </div>
+                    <div class="results m-1 rounded-2 text-center" id="searchInfo"></div>
+                    <div class="input-group">
+                        <textarea class="form-control" placeholder="Aggiungi informazioni sul convoglio"
+                            maxlength="100"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-1"
+                        onclick="inviaSegn(previousElementSibling.firstElementChild.value)">Invia la
+                        segnalazione</button>
+                    <span id="finalError"></span>
+                </form>
+            </div>
 
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Orario</th>
-                    <th scope="col">Localizzazione</th>
-                    <th scope="col">Informazione</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider" id="tableTest">
-            </tbody>
-        </table>
+        </div>
+
+        <div class="alert alert-danger d-flex align-items-center p-2 mb-1" role="alert">
+            <svg class="bi flex-shrink-0 me-2" viewBox="0 0 16 16" width="16" height="16" role="img"
+                aria-label="Danger:">
+                <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
+            <div>
+                Database non connessa
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Orario</th>
+                        <th scope="col">Localizzazione</th>
+                        <th scope="col">Informazione</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider" id="tableTest">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center bg-dark-subtle rounded-4 mt-2 mb-0">
+            <p>Questo sito non è affiliato con Trenitalia</p>
+        </div>
     </div>
+    
 
     <!-- Footer -->
-    <div class="mx-2 text-center bg-dark-subtle rounded-4 mt-2" style="bottom: 0;">
-        <p>Questo sito non è affiliato con Trenitalia</p>
-    </div>
 
 
     <!-- Scripts -->
