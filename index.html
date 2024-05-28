@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100vh;">
+<html lang="en">
 
 <head>
     <title>InfoTreni</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./favicon.ico">
 
     <!-- Bootstrap CSS v5.2.1 -->
@@ -17,8 +17,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Pacifico&display=swap" rel="stylesheet">
+</head>
 
-<body style="height: 100vh;" class="bg-light-subtle">
+<body class="bg-light-subtle">
     <!-- Start Navbar -->
     <nav class="navbar px-2 bg-dark justify-content-between row-1 w-100 flex-nowrap text-nowrap">
         <div class="p-0 navbar-brand text-light col-2 align-items-start">
@@ -47,30 +48,38 @@
     <!-- End Navbar -->
 
     <!-- Start Main -->
-    <div class="titlediv text-center bg-secondary bg-gradient p-md-3 p-2"
-        style="font-family:'Pacifico', cursive">
+    <div class="titlediv text-center bg-secondary bg-gradient p-md-3 p-2" style="font-family:'Pacifico', cursive">
         <h1 class="m-0">
-            <span style="background: linear-gradient(to right, green, linen, red);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text; padding-left: 5px; padding-right: 5px;"><b>InfoTreni</b></span>
+            <span
+                style="background: linear-gradient(to right, green, linen, red);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text; padding-left: 5px; padding-right: 5px;"><b>InfoTreni</b></span>
         </h1>
     </div>
 
-    <div class="container-fluid pt-1">
-        <div class="row px-1 gap-md-1">
-            <div class="col-md rounded-3 text-light bg-dark p-1 text-md-start text-center">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolores porro amet! Quaerat quae hic nobis doloremque ratione labore aliquam sit numquam officiis fugiat veniam id, exercitationem optio impedit necessitatibus atque accusantium obcaecati. Magni, dolore consequatur, recusandae facilis culpa deleniti eligendi ab tenetur neque cupiditate ullam quam modi ratione assumenda vero inventore odio harum veniam commodi expedita laboriosam earum. Qui explicabo ut dignissimos laborum rerum doloribus earum quas dolores, eius, cumque quia iste iure beatae sapiente at, impedit tempora fugiat dolorum harum sit. Impedit dignissimos, voluptate odio culpa nostrum molestias perferendis, minima dolor, laborum rerum dicta sunt? Quam, laudantium dolor.
+    <div class="container-fluid px-1">
+        <div class="row g-0 gap-1 mt-1">
+            <div class="col-md rounded-3 text-light bg-dark p-1" style="text-justify: inter-word; text-align: justify;">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolores porro amet! Quaerat quae
+                hic nobis doloremque ratione labore aliquam sit numquam officiis fugiat veniam id, exercitationem optio
+                impedit necessitatibus atque accusantium obcaecati. Magni, dolore consequatur, recusandae facilis culpa
+                deleniti eligendi ab tenetur neque cupiditate ullam quam modi ratione assumenda vero inventore odio
+                harum veniam commodi expedita laboriosam earum. Qui explicabo ut dignissimos laborum rerum doloribus
+                earum quas dolores, eius, cumque quia iste iure beatae sapiente at, impedit tempora fugiat dolorum harum
+                sit. Impedit dignissimos, voluptate odio culpa nostrum molestias perferendis, minima dolor, laborum
+                rerum dicta sunt? Quam, laudantium dolor.
             </div>
-            <div class="col-md bg-success rounded-3 p-1 mt-1 mt-md-0">
+            <div class="col-md bg-success rounded-3 p-1">
                 <div class="container-fluid p-0 w-100 h-100" style="min-height: 300px;">
                     <div id="map" class="h-100 w-auto rounded-1"></div>
                 </div>
             </div>
         </div>
+
+        <!-- Footer -->
+        <div class="text-center bg-dark-subtle rounded-4 mt-2">
+            <p>Questo sito non è affiliato con Trenitalia</p>
+        </div>
     </div>
-    <!-- End Main -->
-    <!-- Footer -->
-    <div class="mx-2 text-center bg-dark-subtle rounded-4 mt-2" style="bottom: 0;">
-        <p>Questo sito non è affiliato con Trenitalia</p>
-    </div>
+
     <!-- JavaScript Libraries -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
