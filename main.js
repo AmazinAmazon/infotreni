@@ -54,8 +54,8 @@ async function refreshSearch(station, loading = loadingIcon) {
   displayData.className = "results m-1 rounded-2 text-center text-bg-dark";
   loading.classList.remove("visually-hidden");
   lastClick = Date.now();
-
-  fetch(`https://nominatim.openstreetmap.org/?amenity=${station}[railway=station]&country=it&format=json&limit=6&extratags=1`, {
+  //https://nominatim.openstreetmap.org/?q=${station}[railway]&country=it&format=json&limit=6&extratags=1
+  fetch(`https://nominatim.openstreetmap.org/search?amenity=${station}[railway=station]&amnety=${station}[railway=yard]&format=json&extratags=1`, {
     mode: "cors",
   })
     .then((response) => {
